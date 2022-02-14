@@ -23,7 +23,9 @@ func main() {
 		}
 	})
 
-	e.GET("/:name", rest.GetAttendee)
+	e.GET("/attendee/:name", rest.GetAttendee)
+	e.GET("/attendees", rest.GetAllAttendees)
+
 	e.POST("/attendee", rest.AddAttendee)
 
 	e.Logger.Fatal(e.Start(":8080"))
