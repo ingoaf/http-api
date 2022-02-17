@@ -2,6 +2,7 @@ package adding
 
 import (
 	"errors"
+	"fmt"
 
 	"github.com/ingoaf/http-api/listing"
 )
@@ -43,7 +44,10 @@ func (s *service) AddAttendee(a Attendee) error {
 		}
 	}
 
-	s.r.AddAttendee(a)
+	err := s.r.AddAttendee(a)
+	if err != nil {
+		return fmt.Errorf("can not add attendee: %v", err)
+	}
 
 	return nil
 }
